@@ -1,8 +1,10 @@
+import React from 'react';
 import './App.css';
-import Expenses from './components/Expenses';
+import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/Expense/NewExpense';
 
 
-function App() {
+const App = () => {
   const expenses = [{
     expenseDate : new Date(),
     expenseItem: 'Pizza',
@@ -24,9 +26,15 @@ function App() {
     expenseAmount: 650
   }
 ];
+
+const onNewExpenseAdded = (expense)=>{
+  console.log('in App.js', expense);
+}
+
   return (
     <div className="App">
       <h1>React Practice</h1>
+      <NewExpense onNewExpenseAdded={onNewExpenseAdded} ></NewExpense>
       <Expenses expenses = {expenses}></Expenses>
     </div>
   );
